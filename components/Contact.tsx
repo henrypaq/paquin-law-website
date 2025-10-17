@@ -262,9 +262,9 @@ const Contact = () => {
                   Send Message
                 </Button>
               </form>
+                </motion.div>
+              </motion.div>
             </div>
-          </div>
-        </div>
       </div>
     </section>
   );
