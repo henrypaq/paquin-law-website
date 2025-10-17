@@ -108,7 +108,7 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
