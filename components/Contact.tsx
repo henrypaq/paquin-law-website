@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -115,29 +116,27 @@ const Contact = () => {
       
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column - Heading */}
-          <div
-            className={`transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
-            <h2 className="text-5xl md:text-6xl font-inter font-bold text-white mb-4">
-              Contact Us.
-            </h2>
-            <div className="w-32 h-1 bg-white"></div>
-          </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+              {/* Left Column - Heading */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+              >
+                <h2 className="text-5xl md:text-6xl font-inter font-bold text-white mb-4">
+                  Contact Us.
+                </h2>
+                <div className="w-32 h-1 bg-white"></div>
+              </motion.div>
 
-          {/* Right Column - Content */}
-          <div
-            className={`transition-all duration-700 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
-          >
+              {/* Right Column - Content */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              >
             <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-12">
               Ready to discuss your legal needs? Get in touch to schedule a consultation and learn how we can help your business succeed.
             </p>
@@ -170,8 +169,14 @@ const Contact = () => {
               </div>
             </div>
 
-            {/* Large Contact Form */}
-            <div className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 shadow-xl">
+                {/* Large Contact Form */}
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, margin: "-50px" }}
+                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+                  className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 shadow-xl"
+                >
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>

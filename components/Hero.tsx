@@ -51,9 +51,9 @@ const Hero = () => {
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-inter font-thin text-white mb-6 opacity-0 animate-fade-in-up whitespace-nowrap">
             Talent. Results. Experience.
           </h1>
-          <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl opacity-0 animate-fade-in-up animation-delay-200">
-            Strategic legal counsel for modern businesses navigating complex corporate and technology landscapes.
-          </p>
+                <p className="text-lg md:text-xl font-inter font-thin text-white/80 mb-8 max-w-2xl opacity-0 animate-fade-in-up animation-delay-200">
+                  Strategic legal counsel for modern businesses navigating complex corporate and technology landscapes.
+                </p>
         </div>
       </div>
 

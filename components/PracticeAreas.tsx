@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Building2, FileText, Laptop, Shield, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const practiceAreas = [
   {
@@ -38,15 +39,16 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
-    <div
-      className={`relative h-96 w-full cursor-pointer transition-all duration-700 ${
-        isVisible
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-10"
-      }`}
-      style={{
-        transitionDelay: isVisible ? `${(index + 2) * 150}ms` : "0ms",
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false, margin: "-50px" }}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut",
+        delay: index * 0.1,
       }}
+      className="relative h-96 w-full cursor-pointer"
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <div
@@ -144,31 +146,29 @@ const PracticeAreas = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
           {/* Left Column - Heading */}
-          <div
-            className={`transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-5xl md:text-6xl font-inter font-bold text-gray-900 mb-4">
               What We Do Best.
             </h2>
             <div className="w-32 h-1 bg-primary"></div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Content */}
-          <div
-            className={`transition-all duration-700 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               Paquin Law lawyers are focused on what they do best: providing prompt expert legal advice and representation on a very wide variety of complex commercial matters for startups, corporations, and technology companies.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Practice Areas Cards - Full Width */}

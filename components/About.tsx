@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { Plus, Minus } from "lucide-react";
+import { motion } from "framer-motion";
 
 const aboutItems = [
   {
@@ -69,45 +70,43 @@ const About = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-16">
           {/* Left Column - Heading */}
-          <div
-            className={`transition-all duration-700 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <h2 className="text-5xl md:text-6xl font-inter font-bold text-gray-900 mb-4">
               About Us.
             </h2>
             <div className="w-32 h-1 bg-primary"></div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Content */}
-          <div
-            className={`transition-all duration-700 delay-200 ${
-              isVisible
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-10"
-            }`}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               Paquin Law is a corporate and technology law firm with offices in New Orleans, providing expert legal advice on complex legal matters at various levels for startups, corporations, and technology companies nationwide.
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Expandable Items */}
         <div className="space-y-0">
           {aboutItems.map((item, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`transition-all duration-700 ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}
-              style={{
-                transitionDelay: isVisible ? `${(index + 2) * 150}ms` : "0ms",
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-50px" }}
+              transition={{
+                duration: 0.5,
+                ease: "easeOut",
+                delay: index * 0.1,
               }}
             >
               <div className="border-b border-gray-200">
@@ -136,7 +135,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
