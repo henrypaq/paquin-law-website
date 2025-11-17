@@ -101,8 +101,19 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative py-20 md:py-32 bg-gray-50"
+      className="relative py-20 md:py-32 overflow-hidden"
     >
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: "url('/michael-benz--IZ2sgQKIhM-unsplash.jpg')",
+        }}
+      />
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40" />
+      
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -113,25 +124,25 @@ const Contact = () => {
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h2 className="text-5xl md:text-6xl font-inter font-bold text-gray-900 mb-4">
+            <h2 className="text-5xl md:text-6xl font-inter font-bold text-white mb-4">
               Contact Us.
             </h2>
-            <div className="w-32 h-1 bg-primary mb-8"></div>
+            <div className="w-32 h-1 bg-white mb-8"></div>
             
             {/* Contact Information */}
             <div className="mb-8">
-              <div className="flex flex-col gap-6 text-gray-700">
+              <div className="flex flex-col gap-6 text-white/80">
                 <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-primary" />
+                  <Phone className="h-5 w-5 text-white" />
                   <a
                     href="tel:+12102811866"
-                    className="hover:text-primary transition-colors"
+                    className="hover:text-white transition-colors"
                   >
                     210-281-1866
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-primary" />
+                  <MapPin className="h-5 w-5 text-white" />
                   <span>Texas-based, serving clients worldwide</span>
                 </div>
               </div>
@@ -139,13 +150,13 @@ const Contact = () => {
 
             {/* Description */}
             <div>
-              <h3 className="text-2xl md:text-3xl font-inter font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl md:text-3xl font-inter font-bold text-white mb-4">
                 Let's Talk.
               </h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
+              <p className="text-white/90 leading-relaxed mb-4">
                 Share a brief description of your business or solar-related issue and how to reach you. We'll review your message and follow up to discuss whether Paquin Law is a good fit and what next steps might look like.
               </p>
-              <p className="text-gray-600 text-sm leading-relaxed italic">
+              <p className="text-white/70 text-sm leading-relaxed italic">
                 Contacting Paquin Law does not create an attorney–client relationship. Please do not include confidential details until we've confirmed representation.
               </p>
             </div>
