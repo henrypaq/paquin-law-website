@@ -98,16 +98,10 @@ const Contact = () => {
   };
 
   return (
-    <section
-      id="contact"
-      ref={sectionRef}
-      className="relative overflow-hidden bg-white"
-    >
-      {/* White padding area above the image */}
-      <div className="pt-16 md:pt-24 pb-8">
+    <section id="contact" ref={sectionRef} className="relative overflow-hidden bg-white">
+      <div className="relative z-10 pt-20 md:pt-28 pb-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* Left Column - Text Content */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -118,15 +112,10 @@ const Contact = () => {
                 Contact Us.
               </h2>
               <div className="w-32 h-1 bg-primary mb-8"></div>
-              
-              {/* Contact Information */}
-              <div className="mb-8 text-gray-900">
-                <div className="flex items-center space-x-3 mb-3">
+              <div className="mb-8 text-gray-900 space-y-3">
+                <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-primary" />
-                  <a
-                    href="tel:+12102811866"
-                    className="hover:text-primary transition-colors"
-                  >
+                  <a href="tel:+12102811866" className="hover:text-primary transition-colors">
                     210-281-1866
                   </a>
                 </div>
@@ -135,8 +124,6 @@ const Contact = () => {
                   <span>Texas-based, serving clients worldwide</span>
                 </div>
               </div>
-
-              {/* Description */}
               <div>
                 <h3 className="text-2xl md:text-3xl font-inter font-bold text-gray-900 mb-4">
                   Let's Talk.
@@ -150,159 +137,83 @@ const Contact = () => {
               </div>
             </motion.div>
 
-      {/* Background Image */}
-      <div className="relative z-0 mt-8">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+            >
+              <div className="bg-white rounded-none p-8 md:p-12 shadow-lg">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-gray-900 mb-2">
+                        Name *
+                      </label>
+                      <Input
+                        id="name"
+                        name="name"
+                        type="text"
+                        value={formData.name}
+                        onChange={handleChange}
+                        className={`bg-white border-gray-300 text-gray-900 placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary h-12 ${
+                          errors.name ? "border-red-500" : ""
+                        }`}
+                        placeholder="Your full name"
+                      />
+                      {errors.name && <p className="mt-2 text-sm text-red-600">{errors.name}</p>}
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
+                        Email *
+                      </label>
+                      <Input
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={`bg-white border-gray-300 text-gray-900 placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary h-12 ${
+                          errors.email ? "border-red-500" : ""
+                        }`}
+                        placeholder="your.email@example.com"
+                      />
+                      {errors.email && <p className="mt-2 text-sm text-red-600">{errors.email}</p>}
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-900 mb-2">
+                      Message *
+                    </label>
+                    <Textarea
+                      id="message"
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={6}
+                      className={`bg-white border-gray-300 text-gray-900 placeholder-gray-400 resize-none transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary ${
+                        errors.message ? "border-red-500" : ""
+                      }`}
+                      placeholder="Tell us about your legal needs..."
+                    />
+                    {errors.message && <p className="mt-2 text-sm text-red-600">{errors.message}</p>}
+                  </div>
+                  <Button type="submit" className="w-full h-12 text-lg font-medium">
+                    Send Message
+                  </Button>
+                </form>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+
+      <div className="relative mt-6">
         <img
           src="/michael-benz--IZ2sgQKIhM-unsplash.jpg"
           alt="Forest backdrop"
           className="w-full h-[520px] md:h-[620px] object-cover object-bottom"
         />
-      </div>
-      
-      {/* Content overlay on the image */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 md:-mt-40 pb-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          {/* Left Column - Text Content */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <h2 className="text-5xl md:text-6xl font-inter font-bold text-gray-900 mb-4">
-              Contact Us.
-            </h2>
-            <div className="w-32 h-1 bg-primary mb-8"></div>
-            
-            {/* Contact Information */}
-            <div className="mb-8">
-              <div className="flex flex-col gap-6 text-gray-900">
-                <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-primary" />
-                  <a
-                    href="tel:+12102811866"
-                    className="hover:text-primary transition-colors"
-                  >
-                    210-281-1866
-                  </a>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-primary" />
-                  <span>Texas-based, serving clients worldwide</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Description */}
-            <div>
-              <h3 className="text-2xl md:text-3xl font-inter font-bold text-gray-900 mb-4">
-                Let's Talk.
-              </h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
-                Share a brief description of your business or solar-related issue and how to reach you. We'll review your message and follow up to discuss whether Paquin Law is a good fit and what next steps might look like.
-              </p>
-              <p className="text-gray-600 text-sm leading-relaxed italic">
-                Contacting Paquin Law does not create an attorney–client relationship. Please do not include confidential details until we've confirmed representation.
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Right Column - Form */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
-            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          >
-            <div className="bg-white rounded-none p-8 md:p-12 shadow-lg">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-900 mb-2"
-                    >
-                      Name *
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      type="text"
-                      value={formData.name}
-                      onChange={handleChange}
-                      className={`bg-white border-gray-300 text-gray-900 placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary h-12 ${
-                        errors.name ? "border-red-500" : ""
-                      }`}
-                      placeholder="Your full name"
-                    />
-                    {errors.name && (
-                      <p className="mt-2 text-sm text-red-600">
-                        {errors.name}
-                      </p>
-                    )}
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-900 mb-2"
-                    >
-                      Email *
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className={`bg-white border-gray-300 text-gray-900 placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary h-12 ${
-                        errors.email ? "border-red-500" : ""
-                      }`}
-                      placeholder="your.email@example.com"
-                    />
-                    {errors.email && (
-                      <p className="mt-2 text-sm text-red-600">
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-900 mb-2"
-                  >
-                    Message *
-                  </label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    rows={6}
-                    className={`bg-white border-gray-300 text-gray-900 placeholder-gray-400 resize-none transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary ${
-                      errors.message ? "border-red-500" : ""
-                    }`}
-                    placeholder="Tell us about your legal needs..."
-                  />
-                  {errors.message && (
-                    <p className="mt-2 text-sm text-red-600">
-                      {errors.message}
-                    </p>
-                  )}
-                </div>
-
-                <Button
-                  type="submit"
-                  className="w-full h-12 text-lg font-medium"
-                >
-                  Send Message
-                </Button>
-              </form>
-            </div>
-          </motion.div>
-        </div>
       </div>
     </section>
   );
