@@ -70,7 +70,7 @@ const Navbar = () => {
                 }}
               />
                     <span className={`text-xl md:text-2xl font-lora font-medium transition-colors duration-300 ${
-                      isScrolled ? "text-gray-800 hover:text-gray-900" : "text-white hover:text-white/80"
+                      isScrolled ? "text-primary hover:text-primary/80" : "text-white hover:text-white/80"
                     }`}>
                       Paquin Law
                     </span>
