@@ -60,11 +60,11 @@ const Navbar = () => {
               className="flex items-center space-x-3 transition-colors duration-300"
             >
               <img 
-                src={isScrolled ? "/light_logo.png" : "/dark_logo.png"} 
+                src="/dark_logo.png" 
                 alt="Paquin Law Logo" 
                 className="h-12 md:h-16 w-auto"
                 style={isScrolled ? {
-                  filter: 'brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(2000%) hue-rotate(100deg) brightness(0.6) contrast(1.1)'
+                  filter: 'brightness(0) saturate(100%) invert(27%) sepia(47%) saturate(1234%) hue-rotate(85deg) brightness(95%) contrast(88%)'
                 } : {
                   filter: 'brightness(0) invert(1)'
                 }}
