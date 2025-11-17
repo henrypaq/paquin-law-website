@@ -101,16 +101,18 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative pt-48 md:pt-56 pb-20 md:pb-32 overflow-hidden"
+      className="relative pt-48 md:pt-56 pb-0 overflow-visible"
     >
       {/* White space at top */}
       <div className="absolute inset-0 top-0 h-48 md:h-56 bg-white z-10" />
       
       {/* Background Image - starts below white space, extends to bottom */}
       <div 
-        className="absolute top-48 md:top-56 bottom-0 left-0 right-0 bg-cover bg-center bg-no-repeat z-0"
+        className="absolute top-48 md:top-56 bottom-0 left-0 right-0 bg-contain bg-bottom bg-no-repeat z-0"
         style={{
           backgroundImage: "url('/michael-benz--IZ2sgQKIhM-unsplash.jpg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center bottom'
         }}
       />
       
