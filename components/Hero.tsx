@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative h-screen flex items-end justify-start overflow-hidden"
+      className="relative h-screen flex items-center justify-start overflow-hidden"
     >
       {/* Background Image with Parallax */}
       <div
@@ -42,17 +42,17 @@ const Hero = () => {
             backgroundImage: "url('/nastuh-abootalebi-yWwob8kwOCk-unsplash.jpg')",
           }}
         />
-        {/* Dark overlay with gradient fade from white at top */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-black/20 to-black/40" />
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/40" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
         <div className="max-w-4xl">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-inter font-bold text-white mb-6 opacity-0 animate-fade-in-up whitespace-nowrap">
             Insight. Experience. Results.
           </h1>
-          <p className="text-lg md:text-xl font-inter font-bold text-white/80 mb-8 max-w-2xl opacity-0 animate-fade-in-up animation-delay-200">
+          <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl opacity-0 animate-fade-in-up animation-delay-200 leading-relaxed">
             Strategic legal counsel for modern businesses at every stage of growth. Paquin Law also maintains a focused niche in complex solar contract and financing disputes.
           </p>
           <div className="opacity-0 animate-fade-in-up animation-delay-400">
