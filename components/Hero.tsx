@@ -35,7 +35,6 @@ const Hero = () => {
           transition: "transform 0.1s ease-out",
         }}
       >
-        {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -43,9 +42,6 @@ const Hero = () => {
           }}
         />
       </div>
-      
-      {/* Gradient fade from white to transparent at top */}
-      <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-white via-white/50 to-transparent z-[5]" />
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center pb-0 w-full">

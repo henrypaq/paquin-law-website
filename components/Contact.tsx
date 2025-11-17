@@ -101,13 +101,10 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative pt-48 md:pt-56 pb-0 overflow-visible"
+      className="relative pt-36 md:pt-44 pb-0 overflow-hidden"
     >
-      {/* White padding at top */}
-      <div className="absolute inset-0 top-0 h-48 md:h-56 bg-white z-[2]" />
-      
       {/* Background Image */}
-      <div className="absolute top-48 md:top-56 bottom-0 left-0 right-0 z-0 overflow-hidden">
+      <div className="absolute inset-0 z-0">
         <img
           src="/michael-benz--IZ2sgQKIhM-unsplash.jpg"
           alt="Forest backdrop"
@@ -116,10 +113,10 @@ const Contact = () => {
       </div>
       
       {/* Gradient fade from white to transparent */}
-      <div className="absolute top-48 md:top-56 left-0 right-0 h-24 md:h-32 bg-gradient-to-b from-white via-white/60 to-transparent z-[3]" />
+      <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-white via-white/60 to-transparent z-[1]" />
       
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-40 md:-mt-52">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Text Content */}
           <motion.div
