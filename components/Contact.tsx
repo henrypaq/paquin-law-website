@@ -101,24 +101,24 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative pt-32 md:pt-40 pb-20 md:pb-32 overflow-hidden"
+      className="relative pt-48 md:pt-56 pb-20 md:pb-32 overflow-hidden"
     >
       {/* White space at top */}
-      <div className="absolute inset-0 top-0 h-32 md:h-40 bg-white z-10" />
+      <div className="absolute inset-0 top-0 h-48 md:h-56 bg-white z-10" />
       
-      {/* Background Image - starts below white space */}
+      {/* Background Image - starts below white space, extends to bottom */}
       <div 
-        className="absolute inset-0 top-32 md:top-40 bg-cover bg-center bg-no-repeat z-0"
+        className="absolute top-48 md:top-56 bottom-0 left-0 right-0 bg-cover bg-center bg-no-repeat z-0"
         style={{
           backgroundImage: "url('/michael-benz--IZ2sgQKIhM-unsplash.jpg')",
         }}
       />
       
       {/* Gradient fade from white to transparent */}
-      <div className="absolute inset-0 top-32 md:top-40 h-24 md:h-32 bg-gradient-to-b from-white via-white/50 to-transparent z-5" />
+      <div className="absolute top-48 md:top-56 left-0 right-0 h-24 md:h-32 bg-gradient-to-b from-white via-white/50 to-transparent z-5" />
       
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 md:-mt-32">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 md:-mt-40">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Text Content */}
           <motion.div
