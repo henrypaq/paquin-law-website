@@ -43,7 +43,7 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
         ease: "easeOut",
         delay: index * 0.1,
       }}
-      className="relative h-96 w-full cursor-pointer"
+      className="relative h-[500px] w-full cursor-pointer"
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <div
@@ -63,7 +63,7 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
             <div className="absolute inset-0 bg-black/70 group-hover:bg-black/30 transition-colors duration-200" />
             
             {/* Content */}
-            <div className="relative z-10 h-full flex flex-col justify-center p-6">
+            <div className="relative z-10 h-full flex flex-col justify-start p-6">
               <div className="text-white/90 text-lg font-inter font-semibold">
                 {area.title}
               </div>
