@@ -63,7 +63,7 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
             <div className="absolute inset-0 bg-black/70 group-hover:bg-black/30 transition-colors duration-200" />
             
             {/* Content */}
-            <div className="relative z-10 h-full flex flex-col justify-start p-6">
+            <div className="relative z-10 h-full flex flex-col justify-end p-6">
               <div className="text-white/90 text-lg font-inter font-semibold">
                 {area.title}
               </div>
@@ -73,14 +73,16 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
 
         {/* Back of Card */}
         <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
-          <div className="relative w-full h-full bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col justify-center">
-            <h3 className="text-lg font-inter font-semibold text-gray-900 mb-4">
-              {area.title}
-            </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">
-              {area.description}
-            </p>
-            <div className="mt-6 text-center">
+          <div className="relative w-full h-full bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col justify-between">
+            <div>
+              <h3 className="text-lg font-inter font-semibold text-gray-900 mb-4">
+                {area.title}
+              </h3>
+              <p className="text-sm text-gray-600 leading-relaxed">
+                {area.description}
+              </p>
+            </div>
+            <div className="text-center">
               <button 
                 className="text-primary hover:text-primary/80 font-medium text-sm transition-colors duration-300"
                 onClick={(e) => {
