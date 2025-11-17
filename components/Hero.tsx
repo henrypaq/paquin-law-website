@@ -37,18 +37,18 @@ const Hero = () => {
       >
         {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-[1px]"
           style={{
             backgroundImage: "url('/nastuh-abootalebi-yWwob8kwOCk-unsplash.jpg')",
           }}
         />
-        {/* Subtle forest-green/warm-neutral overlay */}
-        <div className="absolute inset-0 bg-[#2d4a2d]/15" />
+        {/* Slight forest-green darkening overlay */}
+        <div className="absolute inset-0 bg-[#2d4a2d]/25" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pb-20 md:pb-32">
-        <div className="max-w-4xl bg-white rounded-lg shadow-2xl p-8 md:p-12 lg:p-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end justify-start pb-20 md:pb-32">
+        <div className="max-w-4xl bg-white rounded-none shadow-2xl p-8 md:p-12 lg:p-16">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-gray-900 mb-6 whitespace-nowrap tracking-tight opacity-0 animate-fade-in-up" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
             Insight. Experience. Results.
           </h1>
