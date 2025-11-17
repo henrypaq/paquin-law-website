@@ -117,7 +117,7 @@ const Contact = () => {
       />
       
       {/* Gradient fade from white to transparent */}
-      <div className="absolute top-48 md:top-56 left-0 right-0 h-24 md:h-32 bg-gradient-to-b from-white via-white/50 to-transparent z-5" />
+      <div className="absolute top-48 md:top-56 left-0 right-0 h-24 md:h-32 bg-gradient-to-b from-white via-white/50 to-transparent z-[5]" />
       
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 md:-mt-40">
