@@ -17,7 +17,7 @@ const practiceAreas = [
     description:
       "Paquin Law prepares, reviews, and negotiates the agreements that shape your business—customer and vendor contracts, employment agreements, and corporate formation and restructuring documents.",
     icon: FileText,
-    backgroundImage: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop",
+    backgroundImage: "/kaffie-co-5KZt_ZnNTcI-unsplash.jpg",
   },
   {
     title: "Technology, SaaS & Licensing",
