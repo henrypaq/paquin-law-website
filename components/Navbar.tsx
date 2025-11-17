@@ -62,7 +62,7 @@ const Navbar = () => {
               <img 
                 src={isScrolled ? "/light_logo.png" : "/dark_logo.png"} 
                 alt="Paquin Law Logo" 
-                className="h-8 md:h-10 w-auto"
+                className="h-12 md:h-16 w-auto"
               />
                     <span className={`text-lg md:text-xl font-lora font-medium transition-colors duration-300 ${
                       isScrolled ? "text-gray-800 hover:text-gray-900" : "text-white hover:text-white/80"
@@ -94,13 +94,18 @@ const Navbar = () => {
             ))}
                   <button
                     onClick={() => scrollToSection("#contact")}
-                    className={`ml-4 px-6 py-2 text-sm lg:text-base font-medium transition-all duration-300 ${
-                      isScrolled
-                        ? "text-primary border-2 border-primary hover:bg-primary hover:text-white"
-                        : "text-white border-2 border-white hover:bg-white hover:text-black"
+                    className={`relative px-3 lg:px-4 py-2 text-sm lg:text-base font-medium transition-all duration-300 group ${
+                      activeSection === "#contact"
+                        ? isScrolled ? "text-primary" : "text-white"
+                        : isScrolled ? "text-gray-500 hover:text-primary" : "text-white/80 hover:text-white"
                     }`}
                   >
-                    Get in Touch
+                    Contact Us
+                    {activeSection === "#contact" ? (
+                      <span className={`absolute bottom-0 left-0 right-0 h-0.5 ${isScrolled ? "bg-primary" : "bg-white"}`} />
+                    ) : (
+                      <span className={`absolute bottom-0 left-0 right-0 h-0.5 ${isScrolled ? "bg-primary" : "bg-white"} scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+                    )}
                   </button>
           </div>
 
@@ -144,13 +149,13 @@ const Navbar = () => {
             ))}
                   <button
                     onClick={() => scrollToSection("#contact")}
-                    className={`w-full mt-2 px-6 py-2 text-base font-medium transition-all duration-300 ${
-                      isScrolled
-                        ? "text-primary border-2 border-primary hover:bg-primary hover:text-white"
-                        : "text-white border-2 border-white hover:bg-white hover:text-black"
+                    className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 ${
+                      activeSection === "#contact"
+                        ? isScrolled ? "text-primary bg-primary/10" : "text-white bg-white/20"
+                        : isScrolled ? "text-gray-500 hover:text-primary hover:bg-primary/5" : "text-white/80 hover:text-white hover:bg-white/10"
                     }`}
                   >
-                    Get in Touch
+                    Contact Us
                   </button>
           </div>
         </div>
