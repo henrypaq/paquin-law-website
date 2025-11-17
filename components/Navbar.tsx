@@ -57,7 +57,7 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection("#home")}
-              className="flex items-center space-x-3 transition-colors duration-300"
+              className="flex items-start space-x-3 transition-colors duration-300 pt-1"
             >
               <img 
                 src={isScrolled ? "/light_logo.png" : "/dark_logo.png"} 
