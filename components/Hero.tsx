@@ -42,8 +42,8 @@ const Hero = () => {
             backgroundImage: "url('/dallas.jpg')",
           }}
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        {/* Dark overlay with gradient fade from white at top */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-black/20 to-black/40" />
       </div>
 
       {/* Content */}
