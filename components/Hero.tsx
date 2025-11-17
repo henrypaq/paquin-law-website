@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -24,7 +25,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative h-screen flex items-end justify-start overflow-hidden"
+      className="relative h-screen flex items-center justify-center overflow-hidden"
     >
       {/* Background Image with Parallax */}
       <div
@@ -36,24 +37,30 @@ const Hero = () => {
       >
         {/* Background Image */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm"
           style={{
-            backgroundImage: "url('/dallas.jpg')",
+            backgroundImage: "url('/office.jpg')",
           }}
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/40" />
+        {/* Subtle forest green/warm neutral overlay */}
+        <div className="absolute inset-0 bg-[#2d4a2d]/20" />
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-32">
-        <div className="max-w-4xl">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-inter font-thin text-white mb-6 opacity-0 animate-fade-in-up whitespace-nowrap">
-            Talent. Results. Experience.
+      {/* Content - White Panel */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-white rounded-lg shadow-2xl p-8 md:p-12 lg:p-16 max-w-4xl mx-auto opacity-0 animate-fade-in-up">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-inter font-bold text-foreground mb-6">
+            Insight. Experience. Results.
           </h1>
-                <p className="text-lg md:text-xl font-inter font-thin text-white/80 mb-8 max-w-2xl opacity-0 animate-fade-in-up animation-delay-200">
-                  Strategic legal counsel for modern businesses navigating complex corporate and technology landscapes.
-                </p>
+          <p className="text-lg md:text-xl font-inter font-bold text-foreground/90 mb-8 max-w-2xl">
+            Strategic legal counsel for modern businesses at every stage of growth. Paquin Law also maintains a focused niche in complex solar contract and financing disputes.
+          </p>
+          <Button
+            onClick={scrollToContact}
+            className="mt-4"
+          >
+            Contact Us
+          </Button>
         </div>
       </div>
 
