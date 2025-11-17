@@ -101,84 +101,70 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative py-20 md:py-32 overflow-hidden"
+      className="relative py-20 md:py-32 bg-gray-50"
     >
-      {/* Background Image */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/street.jpg')",
-        }}
-      />
-      
-      {/* Gradient overlay for seamless transition to footer */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black" />
-      
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-              {/* Left Column - Heading */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-              >
-                <h2 className="text-5xl md:text-6xl font-inter font-bold text-white mb-4">
-                  Contact Us.
-                </h2>
-                <div className="w-32 h-1 bg-white"></div>
-              </motion.div>
-
-              {/* Right Column - Content */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
-                transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-              >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          {/* Left Column - Text Content */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <h2 className="text-5xl md:text-6xl font-inter font-bold text-gray-900 mb-4">
+              Contact Us.
+            </h2>
+            <div className="w-32 h-1 bg-primary mb-8"></div>
+            
             {/* Contact Information */}
-            <div className="mb-12">
-              <div className="flex flex-col gap-6 text-white/80">
+            <div className="mb-8">
+              <div className="flex flex-col gap-6 text-gray-700">
                 <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-white/60" />
+                  <Phone className="h-5 w-5 text-primary" />
                   <a
                     href="tel:+12102811866"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-primary transition-colors"
                   >
                     210-281-1866
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-white/60" />
+                  <MapPin className="h-5 w-5 text-primary" />
                   <span>Texas-based, serving clients worldwide</span>
                 </div>
               </div>
             </div>
 
-                {/* Large Contact Form */}
-                <motion.div
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, margin: "-50px" }}
-                  transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
-                  className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 shadow-xl"
-                >
-                  <h3 className="text-3xl md:text-4xl font-inter font-bold text-white mb-4">
-                    Let's Talk.
-                  </h3>
-                  <p className="text-white/90 leading-relaxed mb-6">
-                    Share a brief description of your business or solar-related issue and how to reach you. We'll review your message and follow up to discuss whether Paquin Law is a good fit and what next steps might look like.
-                  </p>
-                  <p className="text-white/70 text-sm leading-relaxed mb-8 italic">
-                    Contacting Paquin Law does not create an attorney–client relationship. Please do not include confidential details until we've confirmed representation.
-                  </p>
-              <form onSubmit={handleSubmit} className="space-y-8">
+            {/* Description */}
+            <div>
+              <h3 className="text-2xl md:text-3xl font-inter font-bold text-gray-900 mb-4">
+                Let's Talk.
+              </h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Share a brief description of your business or solar-related issue and how to reach you. We'll review your message and follow up to discuss whether Paquin Law is a good fit and what next steps might look like.
+              </p>
+              <p className="text-gray-600 text-sm leading-relaxed italic">
+                Contacting Paquin Law does not create an attorney–client relationship. Please do not include confidential details until we've confirmed representation.
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Right Column - Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+          >
+            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-white mb-3"
+                      className="block text-sm font-medium text-gray-900 mb-2"
                     >
                       Name *
                     </label>
@@ -188,13 +174,13 @@ const Contact = () => {
                       type="text"
                       value={formData.name}
                       onChange={handleChange}
-                      className={`backdrop-blur-sm bg-white/10 border-white/30 text-white placeholder-white/60 transition-all duration-300 focus:ring-2 focus:ring-white/50 focus:border-white/50 h-12 ${
-                        errors.name ? "border-red-400" : ""
+                      className={`bg-white border-gray-300 text-gray-900 placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary h-12 ${
+                        errors.name ? "border-red-500" : ""
                       }`}
                       placeholder="Your full name"
                     />
                     {errors.name && (
-                      <p className="mt-2 text-sm text-red-300">
+                      <p className="mt-2 text-sm text-red-600">
                         {errors.name}
                       </p>
                     )}
@@ -203,7 +189,7 @@ const Contact = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-white mb-3"
+                      className="block text-sm font-medium text-gray-900 mb-2"
                     >
                       Email *
                     </label>
@@ -213,13 +199,13 @@ const Contact = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`backdrop-blur-sm bg-white/10 border-white/30 text-white placeholder-white/60 transition-all duration-300 focus:ring-2 focus:ring-white/50 focus:border-white/50 h-12 ${
-                        errors.email ? "border-red-400" : ""
+                      className={`bg-white border-gray-300 text-gray-900 placeholder-gray-400 transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary h-12 ${
+                        errors.email ? "border-red-500" : ""
                       }`}
                       placeholder="your.email@example.com"
                     />
                     {errors.email && (
-                      <p className="mt-2 text-sm text-red-300">
+                      <p className="mt-2 text-sm text-red-600">
                         {errors.email}
                       </p>
                     )}
@@ -229,7 +215,7 @@ const Contact = () => {
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-white mb-3"
+                    className="block text-sm font-medium text-gray-900 mb-2"
                   >
                     Message *
                   </label>
@@ -239,13 +225,13 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className={`backdrop-blur-sm bg-white/10 border-white/30 text-white placeholder-white/60 resize-none transition-all duration-300 focus:ring-2 focus:ring-white/50 focus:border-white/50 ${
-                      errors.message ? "border-red-400" : ""
+                    className={`bg-white border-gray-300 text-gray-900 placeholder-gray-400 resize-none transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary ${
+                      errors.message ? "border-red-500" : ""
                     }`}
                     placeholder="Tell us about your legal needs..."
                   />
                   {errors.message && (
-                    <p className="mt-2 text-sm text-red-300">
+                    <p className="mt-2 text-sm text-red-600">
                       {errors.message}
                     </p>
                   )}
@@ -253,14 +239,14 @@ const Contact = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-white/20 hover:bg-white/30 text-white border border-white/30 hover:border-white/50 transition-all duration-300 hover:scale-105 hover:shadow-lg backdrop-blur-sm h-12 text-lg font-medium"
+                  className="w-full h-12 text-lg font-medium"
                 >
                   Send Message
                 </Button>
               </form>
-                </motion.div>
-              </motion.div>
             </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
