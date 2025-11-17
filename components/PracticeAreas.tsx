@@ -8,28 +8,24 @@ const practiceAreas = [
     title: "Business Advisory & Corporate Governance",
     description:
       "Paquin Law advises founders, owners, and leadership teams on entity structure, governance, and operational business decisions, with practical guidance that's grounded in how companies actually operate.",
-    icon: Building2,
     backgroundImage: "/muhammad-faiz-zulkeflee-alw-CwGFmwQ-unsplash.jpg",
   },
   {
     title: "Commercial Contracts & Strategic Transactions",
     description:
       "Paquin Law prepares, reviews, and negotiates the agreements that shape your business—customer and vendor contracts, employment agreements, and corporate formation and restructuring documents.",
-    icon: FileText,
     backgroundImage: "/kaffie-co-5KZt_ZnNTcI-unsplash.jpg",
   },
   {
     title: "Technology, SaaS & Licensing",
     description:
       "Paquin Law advises companies on technology and SaaS contracts, software and IP licensing, and other technology-driven contracts.",
-    icon: Laptop,
     backgroundImage: "/arif-riyanto-vJP-wZ6hGBg-unsplash.jpg",
   },
   {
     title: "Solar Contract & Financing Disputes",
     description:
       "Paquin Law represents homeowners in disputes involving solar installation contracts, system performance, and financing arrangements. We untangle complex contracts and loan structures to pursue practical resolutions with installers, lenders, and servicers.",
-    icon: Shield,
     backgroundImage: "/benjamin-jopen-2SfssudtyIA-unsplash.jpg",
   },
 ];
