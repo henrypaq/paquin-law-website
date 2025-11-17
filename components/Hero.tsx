@@ -25,7 +25,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative h-screen flex items-center justify-start overflow-hidden"
+      className="relative h-screen overflow-hidden"
     >
       {/* Background Image with Parallax */}
       <div
