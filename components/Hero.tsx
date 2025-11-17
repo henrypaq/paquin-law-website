@@ -27,6 +27,9 @@ const Hero = () => {
       id="home"
       className="relative h-screen overflow-hidden"
     >
+      {/* White background at top */}
+      <div className="absolute inset-0 top-0 h-32 md:h-40 bg-white z-5" />
+      
       {/* Background Image with Parallax */}
       <div
         className="absolute inset-0 z-0"
@@ -42,9 +45,10 @@ const Hero = () => {
             backgroundImage: "url('/nastuh-abootalebi-yWwob8kwOCk-unsplash.jpg')",
           }}
         />
-        {/* Slight darkening overlay */}
-        <div className="absolute inset-0 bg-black/20" />
       </div>
+      
+      {/* Gradient fade from white to transparent */}
+      <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-white via-white/50 to-transparent z-5" />
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center pb-0 w-full">
