@@ -45,7 +45,7 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className={`bg-black text-white py-12 transition-all duration-700 ${
+      className={`bg-[#1a3a1a] text-white py-12 transition-all duration-700 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
