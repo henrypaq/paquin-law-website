@@ -10,7 +10,7 @@ const practiceAreas = [
     description:
       "Paquin Law advises founders, owners, and leadership teams on entity structure, governance, and operational business decisions, with practical guidance that's grounded in how companies actually operate.",
     icon: Building2,
-    backgroundImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+    backgroundImage: "/muhammad-faiz-zulkeflee-alw-CwGFmwQ-unsplash.jpg",
   },
   {
     title: "Commercial Contracts & Strategic Transactions",
