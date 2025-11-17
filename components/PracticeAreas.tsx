@@ -82,7 +82,7 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
                 {area.description}
               </p>
             </div>
-            <div className="text-center">
+            <div className="text-left">
               <button 
                 className="text-primary hover:text-primary/80 font-medium text-sm transition-colors duration-300"
                 onClick={(e) => {
