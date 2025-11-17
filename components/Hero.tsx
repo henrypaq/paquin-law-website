@@ -39,7 +39,7 @@ const Hero = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: "url('/dallas.jpg')",
+            backgroundImage: "url('/nastuh-abootalebi-yWwob8kwOCk-unsplash.jpg')",
           }}
         />
         {/* Dark overlay with gradient fade from white at top */}
