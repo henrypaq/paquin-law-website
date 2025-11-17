@@ -101,10 +101,10 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative overflow-hidden"
+      className="relative overflow-hidden bg-white"
     >
       {/* White padding area above the image */}
-      <div className="bg-white pt-16 md:pt-24">
+      <div className="pt-16 md:pt-24 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             {/* Left Column - Text Content */}
@@ -151,7 +151,7 @@ const Contact = () => {
             </motion.div>
 
       {/* Background Image */}
-      <div className="relative z-0">
+      <div className="relative z-0 mt-8">
         <img
           src="/michael-benz--IZ2sgQKIhM-unsplash.jpg"
           alt="Forest backdrop"
