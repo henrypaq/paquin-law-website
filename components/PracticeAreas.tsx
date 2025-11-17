@@ -6,32 +6,32 @@ import { motion } from "framer-motion";
 
 const practiceAreas = [
   {
-    title: "Corporate Formation",
+    title: "Business Advisory & Corporate Governance",
     description:
-      "Strategic guidance for entity selection, incorporation, and organizational structuring to support your business goals.",
+      "Paquin Law advises founders, owners, and leadership teams on entity structure, governance, and operational business decisions, with practical guidance that's grounded in how companies actually operate.",
     icon: Building2,
     backgroundImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
   },
   {
-    title: "Contracts",
+    title: "Commercial Contracts & Strategic Transactions",
     description:
-      "Drafting, reviewing, and negotiating commercial agreements to protect your interests and minimize risk.",
+      "Paquin Law prepares, reviews, and negotiates the agreements that shape your business—customer and vendor contracts, employment agreements, and corporate formation and restructuring documents.",
     icon: FileText,
     backgroundImage: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=300&fit=crop",
   },
   {
-    title: "Technology Transactions",
+    title: "Technology, SaaS & Licensing",
     description:
-      "Specialized counsel for software licensing, SaaS agreements, and technology-driven business arrangements.",
+      "Paquin Law advises companies on technology and SaaS contracts, software and IP licensing, and other technology-driven contracts.",
     icon: Laptop,
     backgroundImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
   },
   {
-    title: "Compliance and Risk",
+    title: "Solar Contract & Financing Disputes",
     description:
-      "Proactive compliance strategies and risk management frameworks tailored to your industry and operations.",
+      "Paquin Law represents homeowners in disputes involving solar installation contracts, system performance, and financing arrangements. We untangle complex contracts and loan structures to pursue practical resolutions with installers, lenders, and servicers.",
     icon: Shield,
-    backgroundImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop",
+    backgroundImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop",
   },
 ];
 
@@ -166,7 +166,7 @@ const PracticeAreas = () => {
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
-              Paquin Law lawyers are focused on what they do best: providing prompt expert legal advice and representation on a very wide variety of complex commercial matters for startups, corporations, and technology companies.
+              Paquin Law partners with business leadership teams to navigate corporate, commercial, and technology matters, with a dedicated niche in complex solar and energy disputes.
             </p>
           </motion.div>
         </div>
