@@ -31,7 +31,7 @@ const practiceAreas = [
     description:
       "Paquin Law represents homeowners in disputes involving solar installation contracts, system performance, and financing arrangements. We untangle complex contracts and loan structures to pursue practical resolutions with installers, lenders, and servicers.",
     icon: Shield,
-    backgroundImage: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=400&h=300&fit=crop",
+    backgroundImage: "/benjamin-jopen-2SfssudtyIA-unsplash.jpg",
   },
 ];
 
