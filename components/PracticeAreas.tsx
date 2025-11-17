@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Building2, FileText, Laptop, Shield } from "lucide-react";
 import { motion } from "framer-motion";
 
 const practiceAreas = [
@@ -79,20 +78,15 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
         {/* Back of Card */}
         <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
           <div className="relative w-full h-full bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col justify-center">
-            <div className="flex items-center space-x-3 mb-4">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <area.icon className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-inter font-semibold text-gray-900">
-                {area.title}
-              </h3>
-            </div>
-            <p className="text-gray-600 leading-relaxed">
+            <h3 className="text-lg font-inter font-semibold text-gray-900 mb-4">
+              {area.title}
+            </h3>
+            <p className="text-sm text-gray-600 leading-relaxed">
               {area.description}
             </p>
             <div className="mt-6 text-center">
               <button 
-                className="text-primary hover:text-primary/80 font-medium transition-colors duration-300"
+                className="text-primary hover:text-primary/80 font-medium text-sm transition-colors duration-300"
                 onClick={(e) => {
                   e.stopPropagation();
                   setIsFlipped(false);
