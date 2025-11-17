@@ -105,7 +105,7 @@ const Contact = () => {
     >
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
         style={{
           backgroundImage: "url('/michael-benz--IZ2sgQKIhM-unsplash.jpg')",
         }}
