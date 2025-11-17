@@ -24,7 +24,7 @@ const practiceAreas = [
     description:
       "Paquin Law advises companies on technology and SaaS contracts, software and IP licensing, and other technology-driven contracts.",
     icon: Laptop,
-    backgroundImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop",
+    backgroundImage: "/arif-riyanto-vJP-wZ6hGBg-unsplash.jpg",
   },
   {
     title: "Solar Contract & Financing Disputes",
