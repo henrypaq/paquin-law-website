@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Contact = () => {
@@ -137,34 +137,21 @@ const Contact = () => {
                 viewport={{ once: false, margin: "-100px" }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
               >
-            <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-12">
-              Ready to discuss your legal needs? Get in touch to schedule a consultation and learn how we can help your business succeed.
-            </p>
-            
-            {/* Contact Information - Subtle placement */}
+            {/* Contact Information */}
             <div className="mb-12">
-              <div className="flex flex-wrap gap-8 text-white/80">
-                <div className="flex items-center space-x-3">
-                  <Mail className="h-5 w-5 text-white/60" />
-                  <a
-                    href="mailto:contact@paquinlaw.com"
-                    className="hover:text-white transition-colors"
-                  >
-                    contact@paquinlaw.com
-                  </a>
-                </div>
+              <div className="flex flex-col gap-6 text-white/80">
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-white/60" />
                   <a
-                    href="tel:+15551234567"
+                    href="tel:+12102811866"
                     className="hover:text-white transition-colors"
                   >
-                    (555) 123-4567
+                    210-281-1866
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-white/60" />
-                  <span>New Orleans, LA</span>
+                  <span>Texas-based, serving clients worldwide</span>
                 </div>
               </div>
             </div>
@@ -177,6 +164,15 @@ const Contact = () => {
                   transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
                   className="backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-8 md:p-12 shadow-xl"
                 >
+                  <h3 className="text-3xl md:text-4xl font-inter font-bold text-white mb-4">
+                    Let's Talk.
+                  </h3>
+                  <p className="text-white/90 leading-relaxed mb-6">
+                    Share a brief description of your business or solar-related issue and how to reach you. We'll review your message and follow up to discuss whether Paquin Law is a good fit and what next steps might look like.
+                  </p>
+                  <p className="text-white/70 text-sm leading-relaxed mb-8 italic">
+                    Contacting Paquin Law does not create an attorney–client relationship. Please do not include confidential details until we've confirmed representation.
+                  </p>
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
