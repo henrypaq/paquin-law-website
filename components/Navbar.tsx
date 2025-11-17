@@ -4,14 +4,11 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#home");
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-
       // Detect active section
       const sections = ["#home", "#practice-areas", "#process", "#about", "#contact"];
       for (const section of sections) {
@@ -47,9 +44,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
-      }`}
+      className="fixed top-0 w-full z-50 transition-all duration-300 bg-white shadow-md"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
@@ -60,13 +55,14 @@ const Navbar = () => {
               className="flex items-center space-x-3 transition-colors duration-300"
             >
               <img 
-                src={isScrolled ? "/light_logo.png" : "/dark_logo.png"} 
+                src="/light_logo.png" 
                 alt="Paquin Law Logo" 
                 className="h-12 md:h-16 w-auto"
+                style={{
+                  filter: 'brightness(0) saturate(100%) invert(20%) sepia(80%) saturate(2000%) hue-rotate(90deg) brightness(0.7) contrast(1.2)'
+                }}
               />
-                    <span className={`text-lg md:text-xl font-lora font-medium transition-colors duration-300 ${
-                      isScrolled ? "text-gray-800 hover:text-gray-900" : "text-white hover:text-white/80"
-                    }`}>
+                    <span className="text-lg md:text-xl font-lora font-medium transition-colors duration-300 text-gray-800 hover:text-gray-900">
                       Paquin Law
                     </span>
             </button>
@@ -80,15 +76,15 @@ const Navbar = () => {
                 onClick={() => scrollToSection(link.href)}
                 className={`relative px-3 lg:px-4 py-2 text-sm lg:text-base font-medium transition-all duration-300 group ${
                   activeSection === link.href
-                    ? isScrolled ? "text-primary" : "text-white"
-                    : isScrolled ? "text-gray-500 hover:text-primary" : "text-white/80 hover:text-white"
+                    ? "text-primary"
+                    : "text-gray-500 hover:text-primary"
                 }`}
               >
                 {link.name}
                 {activeSection === link.href ? (
-                  <span className={`absolute bottom-0 left-0 right-0 h-0.5 ${isScrolled ? "bg-primary" : "bg-white"}`} />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />
                 ) : (
-                  <span className={`absolute bottom-0 left-0 right-0 h-0.5 ${isScrolled ? "bg-primary" : "bg-white"} scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+                  <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 )}
               </button>
             ))}
@@ -96,15 +92,15 @@ const Navbar = () => {
                     onClick={() => scrollToSection("#contact")}
                     className={`relative px-3 lg:px-4 py-2 text-sm lg:text-base font-medium transition-all duration-300 group ${
                       activeSection === "#contact"
-                        ? isScrolled ? "text-primary" : "text-white"
-                        : isScrolled ? "text-gray-500 hover:text-primary" : "text-white/80 hover:text-white"
+                        ? "text-primary"
+                        : "text-gray-500 hover:text-primary"
                     }`}
                   >
                     Contact Us
                     {activeSection === "#contact" ? (
-                      <span className={`absolute bottom-0 left-0 right-0 h-0.5 ${isScrolled ? "bg-primary" : "bg-white"}`} />
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />
                     ) : (
-                      <span className={`absolute bottom-0 left-0 right-0 h-0.5 ${isScrolled ? "bg-primary" : "bg-white"} scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left`} />
+                      <span className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                     )}
                   </button>
           </div>
@@ -113,7 +109,7 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`transition-colors p-2 ${isScrolled ? "text-black" : "text-white"}`}
+              className="transition-colors p-2 text-black"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -128,11 +124,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className={`md:hidden border-t animate-fade-in ${
-          isScrolled 
-            ? "bg-white border-gray-200" 
-            : "bg-black/90 backdrop-blur-md border-white/20"
-        }`}>
+        <div className="md:hidden border-t animate-fade-in bg-white border-gray-200">
           <div className="px-4 pt-2 pb-4 space-y-1">
             {navLinks.map((link) => (
               <button
@@ -140,8 +132,8 @@ const Navbar = () => {
                 onClick={() => scrollToSection(link.href)}
                 className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 ${
                   activeSection === link.href
-                    ? isScrolled ? "text-primary bg-primary/10" : "text-white bg-white/20"
-                    : isScrolled ? "text-gray-500 hover:text-primary hover:bg-primary/5" : "text-white/80 hover:text-white hover:bg-white/10"
+                    ? "text-primary bg-primary/10"
+                    : "text-gray-500 hover:text-primary hover:bg-primary/5"
                 }`}
               >
                 {link.name}
@@ -151,8 +143,8 @@ const Navbar = () => {
                     onClick={() => scrollToSection("#contact")}
                     className={`block w-full text-left px-3 py-2 text-base font-medium rounded-md transition-all duration-300 ${
                       activeSection === "#contact"
-                        ? isScrolled ? "text-primary bg-primary/10" : "text-white bg-white/20"
-                        : isScrolled ? "text-gray-500 hover:text-primary hover:bg-primary/5" : "text-white/80 hover:text-white hover:bg-white/10"
+                        ? "text-primary bg-primary/10"
+                        : "text-gray-500 hover:text-primary hover:bg-primary/5"
                     }`}
                   >
                     Contact Us
