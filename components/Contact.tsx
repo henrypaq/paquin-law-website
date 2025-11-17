@@ -111,11 +111,8 @@ const Contact = () => {
         }}
       />
       
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/40" />
-      
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 md:pt-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Text Content */}
           <motion.div
@@ -124,25 +121,25 @@ const Contact = () => {
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <h2 className="text-5xl md:text-6xl font-inter font-bold text-white mb-4">
+            <h2 className="text-5xl md:text-6xl font-inter font-bold text-gray-900 mb-4">
               Contact Us.
             </h2>
-            <div className="w-32 h-1 bg-white mb-8"></div>
+            <div className="w-32 h-1 bg-primary mb-8"></div>
             
             {/* Contact Information */}
             <div className="mb-8">
-              <div className="flex flex-col gap-6 text-white/80">
+              <div className="flex flex-col gap-6 text-gray-900">
                 <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-white" />
+                  <Phone className="h-5 w-5 text-primary" />
                   <a
                     href="tel:+12102811866"
-                    className="hover:text-white transition-colors"
+                    className="hover:text-primary transition-colors"
                   >
                     210-281-1866
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-white" />
+                  <MapPin className="h-5 w-5 text-primary" />
                   <span>Texas-based, serving clients worldwide</span>
                 </div>
               </div>
@@ -150,13 +147,13 @@ const Contact = () => {
 
             {/* Description */}
             <div>
-              <h3 className="text-2xl md:text-3xl font-inter font-bold text-white mb-4">
+              <h3 className="text-2xl md:text-3xl font-inter font-bold text-gray-900 mb-4">
                 Let's Talk.
               </h3>
-              <p className="text-white/90 leading-relaxed mb-4">
+              <p className="text-gray-700 leading-relaxed mb-4">
                 Share a brief description of your business or solar-related issue and how to reach you. We'll review your message and follow up to discuss whether Paquin Law is a good fit and what next steps might look like.
               </p>
-              <p className="text-white/70 text-sm leading-relaxed italic">
+              <p className="text-gray-600 text-sm leading-relaxed italic">
                 Contacting Paquin Law does not create an attorney–client relationship. Please do not include confidential details until we've confirmed representation.
               </p>
             </div>
@@ -169,7 +166,7 @@ const Contact = () => {
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
           >
-            <div className="bg-white rounded-2xl p-8 md:p-12 shadow-lg">
+            <div className="bg-white rounded-none p-8 md:p-12 shadow-lg">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
