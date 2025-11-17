@@ -45,7 +45,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-end pb-20 md:pb-32 w-full">
+      <div className="relative z-10 h-full flex items-end pb-12 md:pb-16 w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <div className="max-w-4xl w-full">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-white mb-6 whitespace-nowrap tracking-tight opacity-0 animate-fade-in-up" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
@@ -57,7 +57,7 @@ const Hero = () => {
           <div className="opacity-0 animate-fade-in-up animation-delay-400">
             <Button
               onClick={scrollToContact}
-              className="bg-white/20 hover:bg-white/30 text-white border border-white/30 hover:border-white/50 transition-all duration-300 hover:scale-105 hover:shadow-lg backdrop-blur-sm rounded-none px-8 py-3 font-medium"
+              className="bg-white text-gray-900 hover:bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-none px-10 py-4 text-lg font-medium"
             >
               Contact Us
             </Button>
