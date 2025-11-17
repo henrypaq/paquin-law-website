@@ -57,12 +57,17 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection("#home")}
-              className="flex items-start space-x-3 transition-colors duration-300 pt-1"
+              className="flex items-center space-x-3 transition-colors duration-300"
             >
               <img 
                 src={isScrolled ? "/light_logo.png" : "/dark_logo.png"} 
                 alt="Paquin Law Logo" 
-                className="h-16 md:h-20 w-auto"
+                className="h-12 md:h-16 w-auto"
+                style={isScrolled ? {
+                  filter: 'brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(2000%) hue-rotate(100deg) brightness(0.6) contrast(1.1)'
+                } : {
+                  filter: 'brightness(0) invert(1)'
+                }}
               />
                     <span className={`text-xl md:text-2xl font-lora font-medium transition-colors duration-300 ${
                       isScrolled ? "text-gray-800 hover:text-gray-900" : "text-white hover:text-white/80"
