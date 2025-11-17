@@ -45,8 +45,9 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 h-full flex items-end justify-start pl-4 sm:pl-6 lg:pl-8 pb-20 md:pb-32">
-        <div className="max-w-4xl">
+      <div className="relative z-10 h-full flex items-end pb-20 md:pb-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+          <div className="max-w-4xl">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-white mb-6 whitespace-nowrap tracking-tight opacity-0 animate-fade-in-up" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
             Insight. Experience. Results.
           </h1>
@@ -60,6 +61,7 @@ const Hero = () => {
             >
               Contact Us
             </Button>
+          </div>
           </div>
         </div>
       </div>
