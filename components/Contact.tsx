@@ -106,16 +106,16 @@ const Contact = () => {
       {/* White space at top */}
       <div className="absolute inset-0 top-0 h-32 md:h-40 bg-white z-10" />
       
-      {/* Background Image */}
+      {/* Background Image - starts below white space */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0"
+        className="absolute inset-0 top-32 md:top-40 bg-cover bg-center bg-no-repeat z-0"
         style={{
           backgroundImage: "url('/michael-benz--IZ2sgQKIhM-unsplash.jpg')",
         }}
       />
       
       {/* Gradient fade from white to transparent */}
-      <div className="absolute inset-0 top-0 h-48 md:h-56 bg-gradient-to-b from-white via-white/50 to-transparent z-5" />
+      <div className="absolute inset-0 top-32 md:top-40 h-24 md:h-32 bg-gradient-to-b from-white via-white/50 to-transparent z-5" />
       
       {/* Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-0">
