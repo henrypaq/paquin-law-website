@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { Building2, FileText, Laptop, Shield, ArrowRight } from "lucide-react";
+import { Building2, FileText, Laptop, Shield } from "lucide-react";
 import { motion } from "framer-motion";
 
 const practiceAreas = [
@@ -68,13 +68,9 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
             <div className="absolute inset-0 bg-black/70 group-hover:bg-black/30 transition-colors duration-200" />
             
             {/* Content */}
-            <div className="relative z-10 h-full flex flex-col justify-between p-6">
+            <div className="relative z-10 h-full flex flex-col justify-center p-6">
               <div className="text-white/90 text-lg font-inter font-semibold">
                 {area.title}
-              </div>
-              
-              <div className="flex items-center text-white text-sm font-medium">
-                LEARN MORE <ArrowRight className="ml-2 h-4 w-4" />
               </div>
             </div>
           </div>

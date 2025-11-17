@@ -57,7 +57,7 @@ const Navbar = () => {
               <img 
                 src="/light_logo.png" 
                 alt="Paquin Law Logo" 
-                className="h-12 md:h-16 w-auto"
+                className="h-16 md:h-20 w-auto"
                 style={{
                   filter: 'brightness(0) saturate(100%) invert(20%) sepia(80%) saturate(2000%) hue-rotate(90deg) brightness(0.7) contrast(1.2)'
                 }}
