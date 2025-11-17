@@ -67,7 +67,7 @@ const Navbar = () => {
                   filter: 'brightness(0) saturate(100%) invert(15%) sepia(95%) saturate(2000%) hue-rotate(100deg) brightness(0.6) contrast(1.1)'
                 } : {}}
               />
-                    <span className={`text-lg md:text-xl font-lora font-medium transition-colors duration-300 ${
+                    <span className={`text-xl md:text-2xl font-lora font-medium transition-colors duration-300 ${
                       isScrolled ? "text-gray-800 hover:text-gray-900" : "text-white hover:text-white/80"
                     }`}>
                       Paquin Law
