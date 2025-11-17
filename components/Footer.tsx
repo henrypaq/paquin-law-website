@@ -62,7 +62,7 @@ const Footer = () => {
                     <h3 className="text-2xl font-lora font-bold">Paquin Law</h3>
                   </div>
                   <p className="text-white/70 text-sm leading-relaxed">
-                    Corporate and Technology Law for a Changing World
+                    Strategic legal counsel for modern businesses at every stage of growth.
                   </p>
                 </div>
 
@@ -86,7 +86,7 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Get in Touch</h4>
             <div className="space-y-2 text-sm text-white/70">
-              <p>New Orleans, LA</p>
+              <p>Texas-based, serving clients worldwide</p>
               <a
                 href="mailto:contact@paquinlaw.com"
                 className="block hover:text-white transition-colors duration-300"
