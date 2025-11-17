@@ -101,8 +101,11 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative pt-36 md:pt-44 pb-0 overflow-hidden"
+      className="relative pt-48 md:pt-56 pb-16 overflow-hidden"
     >
+      {/* White padding above image */}
+      <div className="absolute top-0 left-0 right-0 h-40 md:h-48 bg-white z-[1]" />
+
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img
@@ -111,12 +114,12 @@ const Contact = () => {
           className="w-full h-full object-cover object-bottom"
         />
       </div>
-      
+
       {/* Gradient fade from white to transparent */}
-      <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-white via-white/60 to-transparent z-[1]" />
+      <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-white via-white/70 to-transparent z-[2]" />
       
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 md:-mt-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Text Content */}
           <motion.div
