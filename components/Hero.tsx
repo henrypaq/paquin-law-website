@@ -47,9 +47,9 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-end pb-20 md:pb-32">
         <div className="max-w-4xl">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-inter font-bold text-white mb-6 opacity-0 animate-fade-in-up whitespace-nowrap">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-sans font-bold text-white mb-6 opacity-0 animate-fade-in-up whitespace-nowrap tracking-tight" style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif' }}>
             Insight. Experience. Results.
           </h1>
           <p className="text-lg md:text-xl text-white/80 mb-8 max-w-2xl opacity-0 animate-fade-in-up animation-delay-200 leading-relaxed">
@@ -58,7 +58,7 @@ const Hero = () => {
           <div className="opacity-0 animate-fade-in-up animation-delay-400">
             <Button
               onClick={scrollToContact}
-              className="bg-white/20 hover:bg-white/30 text-white border border-white/30 hover:border-white/50 transition-all duration-300 hover:scale-105 hover:shadow-lg backdrop-blur-sm"
+              className="bg-white text-gray-900 hover:bg-gray-100 transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-none px-8 py-3 font-medium"
             >
               Contact Us
             </Button>
