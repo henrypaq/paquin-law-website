@@ -101,25 +101,66 @@ const Contact = () => {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative pt-48 md:pt-56 pb-16 overflow-hidden"
+      className="relative overflow-hidden"
     >
-      {/* White padding above image */}
-      <div className="absolute top-0 left-0 right-0 h-40 md:h-48 bg-white z-[1]" />
+      {/* White padding area above the image */}
+      <div className="bg-white pt-16 md:pt-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+            {/* Left Column - Text Content */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <h2 className="text-5xl md:text-6xl font-inter font-bold text-gray-900 mb-4">
+                Contact Us.
+              </h2>
+              <div className="w-32 h-1 bg-primary mb-8"></div>
+              
+              {/* Contact Information */}
+              <div className="mb-8 text-gray-900">
+                <div className="flex items-center space-x-3 mb-3">
+                  <Phone className="h-5 w-5 text-primary" />
+                  <a
+                    href="tel:+12102811866"
+                    className="hover:text-primary transition-colors"
+                  >
+                    210-281-1866
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <MapPin className="h-5 w-5 text-primary" />
+                  <span>Texas-based, serving clients worldwide</span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <div>
+                <h3 className="text-2xl md:text-3xl font-inter font-bold text-gray-900 mb-4">
+                  Let's Talk.
+                </h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Share a brief description of your business or solar-related issue and how to reach you. We'll review your message and follow up to discuss whether Paquin Law is a good fit and what next steps might look like.
+                </p>
+                <p className="text-gray-600 text-sm leading-relaxed italic">
+                  Contacting Paquin Law does not create an attorney–client relationship. Please do not include confidential details until we've confirmed representation.
+                </p>
+              </div>
+            </motion.div>
 
       {/* Background Image */}
-      <div className="absolute inset-0 z-0">
+      <div className="relative z-0">
         <img
           src="/michael-benz--IZ2sgQKIhM-unsplash.jpg"
           alt="Forest backdrop"
-          className="w-full h-full object-cover object-bottom"
+          className="w-full h-[520px] md:h-[620px] object-cover object-bottom"
         />
       </div>
-
-      {/* Gradient fade from white to transparent */}
-      <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-white via-white/70 to-transparent z-[2]" />
       
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 md:-mt-32">
+      {/* Content overlay on the image */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-32 md:-mt-40 pb-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Text Content */}
           <motion.div
