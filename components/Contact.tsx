@@ -98,8 +98,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="relative overflow-hidden bg-white">
-      <div className="relative z-10 pt-20 md:pt-28 pb-12">
+    <section id="contact" ref={sectionRef} className="relative bg-white overflow-hidden">
+      <div className="relative z-10 pt-24 md:pt-32 pb-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <motion.div
@@ -212,7 +212,7 @@ const Contact = () => {
         <img
           src="/michael-benz--IZ2sgQKIhM-unsplash.jpg"
           alt="Forest backdrop"
-          className="w-full h-[520px] md:h-[620px] object-cover object-bottom"
+          className="w-full h-[560px] md:h-[660px] object-cover object-top"
         />
       </div>
     </section>
