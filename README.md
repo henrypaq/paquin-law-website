@@ -4,7 +4,7 @@ A modern, elegant single-page website for Paquin Law - a solo law practice speci
 
 ## Features
 
-- **Modern Design**: Clean, minimal aesthetic with Tulane Green (#007C60) as the accent color
+- **Modern Design**: Clean, minimal aesthetic with Paquin Green (#0B5524) as the accent color
 - **Fully Responsive**: Optimized for both mobile and desktop viewing
 - **Smooth Animations**: Fade-in, slide-up, and parallax effects throughout
 - **Interactive Navigation**: Fixed navbar with smooth scrolling to sections
@@ -49,7 +49,7 @@ npm start
 
 ### Colors
 
-- **Primary (Tulane Green)**: #007C60
+- **Primary (Paquin Green)**: #0B5524
 - **Light Grey**: #F5F5F5
 - **White**: #FFFFFF
 - **Dark Text**: Default foreground colors
