@@ -118,7 +118,7 @@ const Contact = () => {
       <div className="absolute inset-0 top-32 md:top-40 h-24 md:h-32 bg-gradient-to-b from-white via-white/50 to-transparent z-5" />
       
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-16 md:-mt-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-24 md:-mt-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column - Text Content */}
           <motion.div
