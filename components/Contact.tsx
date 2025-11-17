@@ -212,8 +212,9 @@ const Contact = () => {
         <img
           src="/michael-benz--IZ2sgQKIhM-unsplash.jpg"
           alt="Forest backdrop"
-          className="w-full h-[560px] md:h-[660px] object-cover object-top"
+          className="w-full h-[520px] md:h-[620px] object-cover object-bottom"
         />
+        <div className="absolute top-0 left-0 right-0 h-32 md:h-40 bg-gradient-to-b from-white via-white/60 to-transparent pointer-events-none" />
       </div>
     </section>
   );
