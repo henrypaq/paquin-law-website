@@ -57,7 +57,7 @@ const Footer = () => {
                     <img 
                       src="/dark_logo.png" 
                       alt="Paquin Law Logo" 
-                      className="h-8 w-auto"
+                      className="h-16 w-auto"
                     />
                     <h3 className="text-2xl font-lora font-bold">Paquin Law</h3>
                   </div>
@@ -88,16 +88,10 @@ const Footer = () => {
             <div className="space-y-2 text-sm text-white/70">
               <p>Texas-based, serving clients worldwide</p>
               <a
-                href="mailto:contact@paquinlaw.com"
+                href="tel:+12102811866"
                 className="block hover:text-white transition-colors duration-300"
               >
-                contact@paquinlaw.com
-              </a>
-              <a
-                href="tel:+15551234567"
-                className="block hover:text-white transition-colors duration-300"
-              >
-                (555) 123-4567
+                210-281-1866
               </a>
             </div>
           </div>

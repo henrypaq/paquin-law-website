@@ -8,7 +8,7 @@ const practiceAreas = [
     title: "Business Advisory & Corporate Governance",
     description:
       "Paquin Law advises founders, owners, and leadership teams on entity structure, governance, and operational business decisions, with practical guidance that's grounded in how companies actually operate.",
-    backgroundImage: "/muhammad-faiz-zulkeflee-alw-CwGFmwQ-unsplash.jpg",
+    backgroundImage: "/alexandr-bormotin-jj3PpeBIlLA-unsplash.jpg",
   },
   {
     title: "Commercial Contracts & Strategic Transactions",
@@ -60,7 +60,7 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
             }}
           >
             {/* Dark overlay that lightens on hover */}
-            <div className="absolute inset-0 bg-black/70 group-hover:bg-black/30 transition-colors duration-200" />
+            <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-200" />
             
             {/* Content */}
             <div className="relative z-10 h-full flex flex-col justify-end p-6">
