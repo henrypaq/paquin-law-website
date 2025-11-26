@@ -62,7 +62,7 @@ const Navbar = () => {
               <img 
                 src="/dark_logo.png" 
                 alt="Paquin Law Logo" 
-                className="h-16 md:h-24 w-auto"
+                className="h-14 md:h-20 w-auto"
                 style={isScrolled ? {
                   filter: 'brightness(0) saturate(100%) invert(27%) sepia(47%) saturate(1234%) hue-rotate(85deg) brightness(95%) contrast(88%)'
                 } : {

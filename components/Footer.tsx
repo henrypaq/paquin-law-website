@@ -57,7 +57,7 @@ const Footer = () => {
                     <img 
                       src="/dark_logo.png" 
                       alt="Paquin Law Logo" 
-                      className="h-16 w-auto"
+                      className="h-12 w-auto"
                     />
                     <h3 className="text-2xl font-lora font-bold">Paquin Law</h3>
                   </div>
