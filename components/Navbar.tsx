@@ -57,7 +57,7 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <button
               onClick={() => scrollToSection("#home")}
-              className="flex items-center space-x-3 transition-colors duration-300"
+              className="flex items-center space-x-2 transition-colors duration-300"
             >
               <img 
                 src="/dark_logo.png" 
