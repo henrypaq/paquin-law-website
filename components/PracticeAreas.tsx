@@ -75,9 +75,6 @@ const FlipCard = ({ area, index, isVisible }: { area: typeof practiceAreas[0], i
         <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180">
           <div className="relative w-full h-full bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 p-6 flex flex-col justify-between">
             <div>
-              <h3 className="text-lg font-inter font-semibold text-gray-900 mb-4">
-                {area.title}
-              </h3>
               <p className="text-sm text-gray-600 leading-relaxed">
                 {area.description}
               </p>

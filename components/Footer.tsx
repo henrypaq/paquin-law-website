@@ -37,7 +37,7 @@ const Footer = () => {
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "Practice Areas", href: "#practice-areas" },
-    { name: "Our Process", href: "#process" },
+    // { name: "Our Process", href: "#process" },
     { name: "About", href: "#about" },
     { name: "Contact", href: "#contact" },
   ];
