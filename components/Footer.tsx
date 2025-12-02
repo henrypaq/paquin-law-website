@@ -103,12 +103,10 @@ const Footer = () => {
             <p className="text-white/60 text-sm">
               © {new Date().getFullYear()} Paquin Law. All rights reserved.
             </p>
-            <div className="flex items-center space-x-1">
+            <div className="flex items-center">
               <span className="text-white/60 text-sm">
-                Built with care and
+                Powered by Callisto AI
               </span>
-              <span className="text-white text-lg">●</span>
-              <span className="text-white/60 text-sm">precision</span>
             </div>
           </div>
         </div>
