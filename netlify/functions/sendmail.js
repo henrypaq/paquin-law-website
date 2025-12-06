@@ -1,31 +1,91 @@
-import { Handler } from '@netlify/functions';
-import { Resend } from 'resend';
+const { Resend } = require('resend');
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+exports.handler = async (event, context) => {
+  // Log function invocation for debugging
+  console.log('Sendmail function invoked');
+  console.log('HTTP Method:', event.httpMethod);
+  console.log('Has RESEND_API_KEY:', !!process.env.RESEND_API_KEY);
+  
+  // Check for API key
+  if (!process.env.RESEND_API_KEY) {
+    console.error('RESEND_API_KEY is missing from environment variables');
+    return {
+      statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        error: 'Server configuration error',
+        message: 'Email service is not properly configured. Please contact support.',
+      }),
+    };
+  }
 
-export const handler: Handler = async (event, context) => {
+  // Initialize Resend with API key
+  let resend;
+  try {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  } catch (error) {
+    console.error('Failed to initialize Resend:', error);
+    return {
+      statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ 
+        error: 'Failed to initialize email service',
+        message: 'Email service initialization failed. Please try again later.',
+      }),
+    };
+  }
+
   // Only allow POST requests
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ error: 'Method not allowed' }),
     };
   }
 
   try {
-    const { name, email, message } = JSON.parse(event.body || '{}');
+    // Parse request body
+    let body;
+    try {
+      body = event.body ? JSON.parse(event.body) : {};
+    } catch (parseError) {
+      console.error('Failed to parse request body:', parseError);
+      return {
+        statusCode: 400,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ error: 'Invalid request format' }),
+      };
+    }
+
+    const { name, email, message } = body;
 
     // Validate required fields
     if (!name || !email || !message) {
+      console.error('Missing required fields:', { hasName: !!name, hasEmail: !!email, hasMessage: !!message });
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: 'Missing required fields' }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          error: 'Missing required fields',
+          message: 'Please fill in all required fields (name, email, and message).'
+        }),
       };
     }
 
     // Escape HTML to prevent XSS
-    const escapeHtml = (text: string) => {
-      return text
+    const escapeHtml = (text) => {
+      return String(text)
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')
         .replace(/>/g, '&gt;')
@@ -49,12 +109,11 @@ export const handler: Handler = async (event, context) => {
     });
 
     // Send email using Resend
-    // Note: For production, you need to verify a domain in Resend and use that domain
-    // For now, using onboarding@resend.dev (test mode - may need domain verification)
+    console.log('Attempting to send email...');
     const { data, error } = await resend.emails.send({
-      from: 'Paquin Law <onboarding@resend.dev>', // Update to your verified domain for production
+      from: 'Paquin Law <onboarding@resend.dev>',
       to: ['henrypaquin0@gmail.com'],
-      replyTo: email, // Allow direct reply to the contact
+      replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `
         <!DOCTYPE html>
@@ -130,15 +189,25 @@ You can reply directly to this email to respond to ${name}.
     });
 
     if (error) {
-      console.error('Resend error:', error);
+      console.error('Resend error:', JSON.stringify(error, null, 2));
       return {
         statusCode: 500,
-        body: JSON.stringify({ error: 'Failed to send email', details: error }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          error: 'Failed to send email',
+          message: 'We encountered an error sending your message. Please try again later.',
+        }),
       };
     }
 
+    console.log('Email sent successfully:', data?.id);
     return {
       statusCode: 200,
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ 
         success: true, 
         message: 'Email sent successfully',
@@ -147,11 +216,18 @@ You can reply directly to this email to respond to ${name}.
     };
   } catch (error) {
     console.error('Error processing request:', error);
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    const errorStack = error instanceof Error ? error.stack : undefined;
+    console.error('Error stack:', errorStack);
+    
     return {
       statusCode: 500,
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ 
         error: 'Internal server error',
-        details: error instanceof Error ? error.message : 'Unknown error'
+        message: 'An unexpected error occurred. Please try again later.',
       }),
     };
   }

@@ -96,10 +96,19 @@ const Contact = () => {
         }),
       });
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (parseError) {
+        console.error('Failed to parse response:', parseError);
+        throw new Error("Server returned an invalid response. Please try again.");
+      }
 
       if (!response.ok) {
-        throw new Error(data.error || "Failed to send message");
+        // Use the message from server if available, otherwise use error
+        const errorMessage = data?.message || data?.error || `Server error (${response.status})`;
+        console.error('Server error:', { status: response.status, data });
+        throw new Error(errorMessage);
       }
 
       // Success
