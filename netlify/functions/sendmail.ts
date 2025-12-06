@@ -1,0 +1,159 @@
+import { Handler } from '@netlify/functions';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export const handler: Handler = async (event, context) => {
+  // Only allow POST requests
+  if (event.httpMethod !== 'POST') {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ error: 'Method not allowed' }),
+    };
+  }
+
+  try {
+    const { name, email, message } = JSON.parse(event.body || '{}');
+
+    // Validate required fields
+    if (!name || !email || !message) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Missing required fields' }),
+      };
+    }
+
+    // Escape HTML to prevent XSS
+    const escapeHtml = (text: string) => {
+      return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    };
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message).replace(/\n/g, '<br>');
+
+    // Format the submission date
+    const submissionDate = new Date().toLocaleString('en-US', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit',
+      timeZoneName: 'short'
+    });
+
+    // Send email using Resend
+    // Note: For production, you need to verify a domain in Resend and use that domain
+    // For now, using onboarding@resend.dev (test mode - may need domain verification)
+    const { data, error } = await resend.emails.send({
+      from: 'Paquin Law <onboarding@resend.dev>', // Update to your verified domain for production
+      to: ['henrypaquin0@gmail.com'],
+      replyTo: email, // Allow direct reply to the contact
+      subject: `New Contact Form Submission from ${name}`,
+      html: `
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f5f5f5;">
+          <div style="background-color: #ffffff; border-radius: 8px; padding: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <div style="border-bottom: 3px solid #0B5524; padding-bottom: 20px; margin-bottom: 30px;">
+              <h1 style="color: #0B5524; margin: 0; font-size: 24px; font-weight: 600;">New Contact Form Submission</h1>
+              <p style="color: #666; margin: 8px 0 0 0; font-size: 14px;">Paquin Law Website</p>
+            </div>
+            
+            <div style="background-color: #f9f9f9; border-left: 4px solid #0B5524; padding: 20px; margin-bottom: 25px; border-radius: 4px;">
+              <p style="margin: 0 0 10px 0; color: #666; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Submitted</p>
+              <p style="margin: 0; color: #333; font-size: 16px; font-weight: 500;">${submissionDate}</p>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+              <h2 style="color: #333; font-size: 18px; font-weight: 600; margin: 0 0 15px 0; border-bottom: 1px solid #e0e0e0; padding-bottom: 10px;">Contact Information</h2>
+              <table style="width: 100%; border-collapse: collapse;">
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; width: 120px; color: #666; font-weight: 500;">Name:</td>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; color: #333; font-size: 16px;">${safeName}</td>
+                </tr>
+                <tr>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0; color: #666; font-weight: 500;">Email:</td>
+                  <td style="padding: 12px 0; border-bottom: 1px solid #f0f0f0;">
+                    <a href="mailto:${safeEmail}" style="color: #0B5524; text-decoration: none; font-size: 16px;">${safeEmail}</a>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div style="margin-bottom: 25px;">
+              <h2 style="color: #333; font-size: 18px; font-weight: 600; margin: 0 0 15px 0; border-bottom: 1px solid #e0e0e0; padding-bottom: 10px;">Message</h2>
+              <div style="background-color: #fafafa; padding: 20px; border-radius: 4px; border: 1px solid #e0e0e0; color: #333; font-size: 15px; line-height: 1.8; white-space: pre-wrap;">${safeMessage}</div>
+            </div>
+
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center;">
+              <p style="margin: 0; color: #999; font-size: 12px;">This email was sent from the Paquin Law contact form</p>
+              <p style="margin: 5px 0 0 0; color: #999; font-size: 12px;">You can reply directly to this email to respond to ${safeName}</p>
+            </div>
+          </div>
+        </body>
+        </html>
+      `,
+      text: `
+New Contact Form Submission - Paquin Law Website
+
+Submitted: ${submissionDate}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+CONTACT INFORMATION
+
+Name: ${name}
+Email: ${email}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+MESSAGE
+
+${message}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+This email was sent from the Paquin Law contact form.
+You can reply directly to this email to respond to ${name}.
+      `,
+    });
+
+    if (error) {
+      console.error('Resend error:', error);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Failed to send email', details: error }),
+      };
+    }
+
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ 
+        success: true, 
+        message: 'Email sent successfully',
+        id: data?.id 
+      }),
+    };
+  } catch (error) {
+    console.error('Error processing request:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ 
+        error: 'Internal server error',
+        details: error instanceof Error ? error.message : 'Unknown error'
+      }),
+    };
+  }
+};
+
