@@ -109,12 +109,20 @@ exports.handler = async (event, context) => {
     });
 
     // Send email using Resend
+    // Note: Resend test mode only allows sending to the account owner's email
+    // For production, verify a domain at resend.com/domains and update the 'from' address
     console.log('Attempting to send email...');
+    console.log('Sending from: onboarding@resend.dev');
+    console.log('Sending to: henry@aicallisto.com (account owner - Resend requirement)');
+    console.log('Original recipient: henrypaquin0@gmail.com');
+    
+    // For now, send to account owner email due to Resend test domain restrictions
+    // Once a domain is verified, update 'from' to use that domain and 'to' to henrypaquin0@gmail.com
     const { data, error } = await resend.emails.send({
       from: 'Paquin Law <onboarding@resend.dev>',
-      to: ['henrypaquin0@gmail.com'],
+      to: ['henry@aicallisto.com'], // Account owner email (required for test domain)
       replyTo: email,
-      subject: `New Contact Form Submission from ${name}`,
+      subject: `[Paquin Law] Contact Form Submission from ${name}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -158,6 +166,7 @@ exports.handler = async (event, context) => {
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center;">
               <p style="margin: 0; color: #999; font-size: 12px;">This email was sent from the Paquin Law contact form</p>
               <p style="margin: 5px 0 0 0; color: #999; font-size: 12px;">You can reply directly to this email to respond to ${safeName}</p>
+              <p style="margin: 10px 0 0 0; color: #999; font-size: 11px; font-style: italic;">Note: This email was forwarded due to Resend test domain restrictions. Original recipient: henrypaquin0@gmail.com</p>
             </div>
           </div>
         </body>
@@ -185,11 +194,31 @@ ${message}
 
 This email was sent from the Paquin Law contact form.
 You can reply directly to this email to respond to ${name}.
+
+Note: Currently forwarded to account owner email due to Resend test domain restrictions.
+To send directly to henrypaquin0@gmail.com, verify a domain at resend.com/domains.
       `,
     });
 
     if (error) {
       console.error('Resend error:', JSON.stringify(error, null, 2));
+      
+      // Check for specific Resend validation errors
+      if (error.statusCode === 403 && error.name === 'validation_error') {
+        console.error('Resend domain verification required');
+        return {
+          statusCode: 500,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ 
+            error: 'Email service configuration error',
+            message: 'Email service requires domain verification. Please contact support.',
+            details: process.env.NODE_ENV === 'development' ? error.message : undefined
+          }),
+        };
+      }
+      
       return {
         statusCode: 500,
         headers: {
@@ -198,6 +227,7 @@ You can reply directly to this email to respond to ${name}.
         body: JSON.stringify({ 
           error: 'Failed to send email',
           message: 'We encountered an error sending your message. Please try again later.',
+          details: process.env.NODE_ENV === 'development' ? error.message : undefined
         }),
       };
     }
