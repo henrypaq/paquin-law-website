@@ -33,7 +33,7 @@ const Hero = () => {
             >
               Insight. Experience. Results.
             </h1>
-            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl opacity-0 animate-fade-in-up animation-delay-200 leading-relaxed">
+            <p className="text-lg md:text-xl text-white/90 mb-8 max-w-2xl text-left opacity-0 animate-fade-in-up animation-delay-200 leading-relaxed">
               Strategic legal counsel for modern businesses at every stage of
               growth. Paquin Law also maintains a focused niche in complex solar
               contract and financing disputes.

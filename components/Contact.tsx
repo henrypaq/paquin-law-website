@@ -75,7 +75,7 @@ const Contact = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -100,35 +100,35 @@ const Contact = () => {
       try {
         data = await response.json();
       } catch (parseError) {
-        console.error('Failed to parse response:', parseError);
+        console.error("Failed to parse response:", parseError);
         throw new Error("Server returned an invalid response. Please try again.");
       }
 
       if (!response.ok) {
-        // Use the message from server if available, otherwise use error
-        const errorMessage = data?.message || data?.error || `Server error (${response.status})`;
-        console.error('Server error:', { status: response.status, data });
+        const errorMessage =
+          data?.message || data?.error || `Server error (${response.status})`;
+        console.error("Server error:", { status: response.status, data });
         throw new Error(errorMessage);
       }
 
-      // Success
       setSubmitStatus({
         type: "success",
         message: "Thank you! Your message has been sent successfully.",
       });
 
-      // Reset form
       setFormData({ name: "", email: "", message: "" });
       setErrors({ name: "", email: "", message: "" });
 
-      // Clear success message after 5 seconds
       setTimeout(() => {
         setSubmitStatus({ type: null, message: "" });
       }, 5000);
     } catch (error) {
       setSubmitStatus({
         type: "error",
-        message: error instanceof Error ? error.message : "Failed to send message. Please try again.",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Failed to send message. Please try again.",
       });
     } finally {
       setIsSubmitting(false);
@@ -140,7 +140,6 @@ const Contact = () => {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
     if (errors[name as keyof typeof errors]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -175,13 +174,16 @@ const Contact = () => {
               </div>
               <div>
                 <h3 className="text-2xl md:text-3xl font-inter font-bold text-gray-900 mb-4">
-                  Let's Talk.
+                  Let&apos;s Talk.
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  Share a brief description of your business or solar-related issue and how to reach you. We'll review your message and follow up to discuss whether Paquin Law is a good fit and what next steps might look like.
+                  Share a brief description of your business or solar-related issue and how to
+                  reach you. We&apos;ll review your message and follow up to discuss whether
+                  Paquin Law is a good fit and what next steps might look like.
                 </p>
                 <p className="text-gray-600 text-sm leading-relaxed italic">
-                  Contacting Paquin Law does not create an attorney–client relationship. Please do not include confidential details until we've confirmed representation.
+                  Contacting Paquin Law does not create an attorney–client relationship. Please
+                  do not include confidential details until we&apos;ve confirmed representation.
                 </p>
               </div>
             </motion.div>
@@ -210,7 +212,7 @@ const Contact = () => {
                         }`}
                         placeholder="Your full name"
                       />
-                      {errors.name && <p className="mt-2 text-sm text-red-600">{errors.name}</p>}
+                      {errors.name && <p className="mt-2 text-sm text-red-600 text-left">{errors.name}</p>}
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
@@ -227,7 +229,9 @@ const Contact = () => {
                         }`}
                         placeholder="your.email@example.com"
                       />
-                      {errors.email && <p className="mt-2 text-sm text-red-600">{errors.email}</p>}
+                      {errors.email && (
+                        <p className="mt-2 text-sm text-red-600 text-left">{errors.email}</p>
+                      )}
                     </div>
                   </div>
                   <div>
@@ -239,13 +243,15 @@ const Contact = () => {
                       name="message"
                       value={formData.message}
                       onChange={handleChange}
-                      rows={6}
+                      rows={7}
                       className={`bg-white border-gray-300 text-gray-900 placeholder-gray-400 resize-none transition-all duration-300 focus:ring-2 focus:ring-primary focus:border-primary ${
                         errors.message ? "border-red-500" : ""
                       }`}
                       placeholder="Tell us about your legal needs..."
                     />
-                    {errors.message && <p className="mt-2 text-sm text-red-600">{errors.message}</p>}
+                    {errors.message && (
+                      <p className="mt-2 text-sm text-red-600 text-left">{errors.message}</p>
+                    )}
                   </div>
                   {submitStatus.type && (
                     <motion.div
@@ -262,11 +268,11 @@ const Contact = () => {
                       ) : (
                         <XCircle className="h-5 w-5 text-red-600 flex-shrink-0 mt-0.5" />
                       )}
-                      <p className="text-sm font-medium flex-1">{submitStatus.message}</p>
+                      <p className="text-sm font-medium flex-1 text-left">{submitStatus.message}</p>
                     </motion.div>
                   )}
-                  <Button 
-                    type="submit" 
+                  <Button
+                    type="submit"
                     className="w-full h-12 text-lg font-medium"
                     disabled={isSubmitting}
                   >
@@ -299,4 +305,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
