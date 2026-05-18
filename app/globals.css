@@ -131,6 +131,11 @@
     @apply text-justify;
     hyphens: auto;
   }
+  /* Hero tagline — keep original left-aligned subtext under main title */
+  #home p {
+    text-align: left;
+    hyphens: none;
+  }
 }
 
 /* Smooth scroll behavior */
