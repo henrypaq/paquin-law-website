@@ -14,7 +14,7 @@ const practiceAreas = [
     title: "Commercial Contracts & Strategic Transactions",
     description:
       "Paquin Law prepares, reviews, and negotiates the agreements that shape your business—customer and vendor contracts, employment agreements, and corporate formation and restructuring documents.",
-    backgroundImage: "/kaffie-co-5KZt_ZnNTcI-unsplash.jpg",
+    backgroundImage: "/commercial-contracts-card.png",
   },
   {
     title: "Technology, SaaS & Licensing",
