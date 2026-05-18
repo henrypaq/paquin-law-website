@@ -41,6 +41,13 @@ const About = () => {
                   drafting and a steady legal voice to help navigate important
                   decisions with confidence.
                 </p>
+                <p className="text-base md:text-lg text-gray-700 leading-relaxed mt-4">
+                  Christen also represents homeowners in disputes involving
+                  residential solar systems, financing agreements, and related
+                  business practices. Across her practice, clients work with
+                  Christen when they need a steady legal voice to help navigate
+                  important decisions with confidence.
+                </p>
               </div>
 
               <div>
