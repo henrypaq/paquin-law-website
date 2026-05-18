@@ -134,6 +134,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Match hero tone during overscroll / rubber-band so no white flash at top */
+html,
+body {
+  background-color: #1a2420;
+}
+
+main {
+  background-color: var(--background);
+}
+
 /* Custom animations */
 @keyframes fadeInUp {
   from {
