@@ -84,7 +84,7 @@ const Contact = () => {
     setSubmitStatus({ type: null, message: "" });
 
     try {
-      const response = await fetch("/.netlify/functions/sendmail", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
