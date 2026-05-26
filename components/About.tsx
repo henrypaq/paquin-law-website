@@ -30,19 +30,19 @@ const About = () => {
                 </h3>
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed">
                   Christen founded Paquin Law to serve as the trusted legal
-                  counsel that businesses need in their corner. She works closely
+                  counsel businesses need in their corner. She works closely
                   with founders and leadership teams to offer clear, practical
                   advice attuned to the demands of building and running a
                   company. Clients work with Christen when they need careful
-                  drafting and a steady legal voice to help navigate important
+                  judgment and a steady legal voice to help navigate important
                   decisions with confidence.
                 </p>
                 <p className="text-sm sm:text-base text-gray-700 leading-relaxed mt-3">
                   Christen also represents homeowners in disputes involving
                   residential solar systems, financing agreements, and related
                   business practices. Across her practice, clients work with
-                  Christen when they need a steady legal voice to help navigate
-                  important decisions with confidence.
+                  Christen when they need grounded judgment and practical
+                  direction.
                 </p>
               </div>
 
